@@ -30,19 +30,6 @@ let trainFrequency = 0;
  trainTime = $("#tTime").val();
  trainFrequency = parseInt($("#tFrequency").val());
 
-
- // let currentTime = moment();
- // console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
- // let diffTime = moment().diff(moment(trainTime), "minutes");
- // console.log("DIFFERENCE IN TIME: " + diffTime);
- // let tRemainder = diffTime % trainFrequency;
- // console.log(tRemainder);
- // let tMinutesTillTrain = trainFrequency - tRemainder;
- // console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
- 
- 
- 
- 
  
  $("#addBtn").on("click", function(event){
      console.log("iv been clicked")
@@ -82,7 +69,7 @@ let trainFrequency = 0;
         trainName: trainName,
         trainDest: trainDest,
         trainFrequency: trainFrequency,
-        nextTrain: nextTrain,
+        // next: nextTrain,
         minsAway: tMinutesTillTrain
         
     })
