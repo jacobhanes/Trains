@@ -1,43 +1,70 @@
 
+$(document).ready(function(){
 
   // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyAf46_BcHQ4iK1nnVbLdQ_3p0lmmkCbT4w",
-    authDomain: "trains-d421f.firebaseapp.com",
-    databaseURL: "https://trains-d421f.firebaseio.com",
-    projectId: "trains-d421f",
-    storageBucket: "trains-d421f.appspot.com",
-    messagingSenderId: "30434606015",
-    appId: "1:30434606015:web:9be4eb6f0945bc30"
+   // Your web app's Firebase configuration
+   var firebaseConfig = {
+    apiKey: "AIzaSyCSx9YZg3Ml5Curft0RR6NoRrbJNdB0EmQ",
+    authDomain: "first-project-ebac4.firebaseapp.com",
+    databaseURL: "https://first-project-ebac4.firebaseio.com",
+    projectId: "first-project-ebac4",
+    storageBucket: "first-project-ebac4.appspot.com",
+    messagingSenderId: "456892903814",
+    appId: "1:456892903814:web:d8f9c6be25fd9593"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  // Initialize Firebase
+  
 
 
-  const dataRef = firebase();
+const dataRef = firebase.database();
 
-  let trainName = $("#tName").val().trim();
-  let trainDest = $("#tDest").val().trim();
-  let trainTime = $("#tTime").val().trim();
-  let trainFrequency = $("#tFrequency").val().trim();
+let trainName = $("#tName").val().trim();
+let trainDest = $("#tDest").val().trim();
+let trainTime = $("#tTime").val().trim();
+let trainFrequency = $("#tFrequency").val().trim();
 
-  let currentTime = moment();
+// let currentTime = moment();
+// console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+// let diffTime = moment().diff(moment(trainTime), "minutes");
+// console.log("DIFFERENCE IN TIME: " + diffTime);
+// let tRemainder = diffTime % trainFrequency;
+// console.log(tRemainder);
+// let tMinutesTillTrain = trainFrequency - tRemainder;
+// console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+
+
+
+
+$("#addBtn").on("click", function(){
+    console.log("iv been clicked")
+    
+    let currentTime = moment();
     console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
-  let diffTime = moment().diff(moment(trainTime), "minutes");
+    let diffTime = moment().diff(moment(trainTime), "minutes");
     console.log("DIFFERENCE IN TIME: " + diffTime);
-  let tRemainder = diffTime % trainFrequency;
+    let tRemainder = diffTime % trainFrequency;
     console.log(tRemainder);
-  let tMinutesTillTrain = trainFrequency - tRemainder;
+    let tMinutesTillTrain = trainFrequency - tRemainder;
     console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
-  
-  
-  
-  
-  
+
+
     dataRef.ref().push({
-      trainName: trainName,
-      trainDest: trainDest,
-      trainTime: trainTime,
-      trainFrequency: trainFrequency
-  })
+        trainName: trainName,
+        trainDest: trainDest,
+        trainTime: trainTime,
+        trainFrequency: trainFrequency,
+        
+    })
+})  
+
+
+
+
+
+
+
+});
