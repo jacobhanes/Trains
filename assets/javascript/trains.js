@@ -38,30 +38,30 @@ let trainFrequency = 0;
      trainDest = $("#tDest").val();
      trainTime = $("#tTime").val();
      trainFrequency = parseInt($("#tFrequency").val());
-     console.log(trainFrequency);
+    //  console.log(trainFrequency);
      
      let firstTimeConverted = moment(trainTime, "HH:mm").subtract(1, "years");
-     console.log(firstTimeConverted);
+    //  console.log(firstTimeConverted);
      
      // Current Time
      let currentTime = moment();
-     console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+    //  console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
      
      // Difference between the times
      let diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-    console.log("DIFFERENCE IN TIME: " + diffTime);
+    // console.log("DIFFERENCE IN TIME: " + diffTime);
 
     // Time apart (remainder)
     let tRemainder = diffTime % trainFrequency;
-    console.log(tRemainder);
+    // console.log(tRemainder);
 
     // Minute Until Train
     let tMinutesTillTrain = trainFrequency - tRemainder;
-    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+    // console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 
     // Next Train
     let nextTrain = moment().add(tMinutesTillTrain, "minutes");
-    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+    // console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
     let nextT = moment(nextTrain).format("hh:mm");
     
 
@@ -73,7 +73,20 @@ let trainFrequency = 0;
         minsAway: tMinutesTillTrain
         
     })
+
+
+
 });  
+    dataRef.ref().on("child_added", function(childSnapshot){
+        console.log(childSnapshot.val().trainName);
+        console.log(childSnapshot.val().trainDest);
+        console.log(childSnapshot.val().trainFrequency);
+        console.log(childSnapshot.val().next);
+        console.log(childSnapshot.val().minsAway);
+
+        $("tbody").append("<td>" + childSnapshot.val().trainName + "</td>" + "<td>" + childSnapshot.val().trainDest + "</td>" + "<td>" + childSnapshot.val().trainFrequency + "</td>" + "<td>" + childSnapshot.val().next + "</td>" + "<td>" + childSnapshot.val().minsAway + "</td>");
+    })
+
 
 
 
