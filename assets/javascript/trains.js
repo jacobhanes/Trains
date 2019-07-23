@@ -62,18 +62,18 @@ let trainFrequency = 0;
     // Next Train
     let nextTrain = moment().add(tMinutesTillTrain, "minutes");
     console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
-
+    let nextT = moment(nextTrain).format("hh:mm");
     
 
     dataRef.ref().push({
         trainName: trainName,
         trainDest: trainDest,
         trainFrequency: trainFrequency,
-        // next: nextTrain,
+        next: nextT,
         minsAway: tMinutesTillTrain
         
     })
-})  
+});  
 
 
 
