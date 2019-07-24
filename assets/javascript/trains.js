@@ -84,7 +84,7 @@ let trainFrequency = 0;
         console.log(childSnapshot.val().next);
         console.log(childSnapshot.val().minsAway);
 
-        $("tbody").append("<td>" + childSnapshot.val().trainName + "</td>" + "<td>" + childSnapshot.val().trainDest + "</td>" + "<td>" + childSnapshot.val().trainFrequency + "</td>" + "<td>" + childSnapshot.val().next + "</td>" + "<td>" + childSnapshot.val().minsAway + "</td>");
+        $("tbody").append("<tr><td>" + childSnapshot.val().trainName + "</td>" + "<td>" + childSnapshot.val().trainDest + "</td>" + "<td>" + childSnapshot.val().trainFrequency + "</td>" + "<td>" + childSnapshot.val().next + "</td>" + "<td>" + childSnapshot.val().minsAway + "</td></tr>");
     })
 
 
